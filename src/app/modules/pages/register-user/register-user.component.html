@@ -1,0 +1,50 @@
+<body>
+    <form class="container">
+        <mat-form-field class="example-full-width" style="color: white;">
+        <input matInput placeholder="Name" [formControl]="requiredNameControl"
+            [errorStateMatcher]="matcher" [(ngModel)]="user.name">
+        <mat-error *ngIf="requiredNameControl.hasError('required')">
+            Name is <strong>required</strong>
+        </mat-error>
+    </mat-form-field><br><br>
+
+    <mat-form-field class="example-full-width" style="color: white;">
+        <input matInput placeholder="Surname" [formControl]="requiredSurnameControl"
+               [errorStateMatcher]="matcher" [(ngModel)]="user.surname">
+        <mat-error *ngIf="requiredSurnameControl.hasError('required')">
+            Surname is <strong>required</strong>
+        </mat-error>
+      </mat-form-field><br><br>
+
+      <mat-form-field class="example-full-width" style="color: white;">
+        <input matInput placeholder="Email"  [formControl]="emailFormControl"
+               [errorStateMatcher]="matcher" [(ngModel)]="user.email">
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field><br><br>
+  
+      <mat-form-field class="example-full-width" style="color: white;">
+          <input matInput placeholder="Password" type="password" [formControl]="requiredPasswordControl"
+                 [errorStateMatcher]="matcher" [(ngModel)]="user.password">
+          <mat-error *ngIf="requiredPasswordControl.hasError('required')">
+              Password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field><br><br>
+
+        <mat-form-field class="example-full-width" style="color: white;">
+            <input matInput placeholder="Confirm password" type="password" [formControl]="requiredConfirmationPasswordControl"
+                   [errorStateMatcher]="matcher" [(ngModel)]="confirmationPass">
+            <mat-error *ngIf="requiredConfirmationPasswordControl.hasError('required')">
+                Confirmation password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field><br><br>
+
+        <button mat-stroked-button style="color: white;" (click)="registerUser()"> 
+            Register
+        </button>
+  </form>
+</body>
