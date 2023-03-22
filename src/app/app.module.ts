@@ -3,14 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { AdminModule } from './modules/admin/admin.module';
 import { RegularUserModule } from './modules/regular-user/regular-user.module';
 import { GuestUserModule } from './modules/guest-user/guest-user.module';
-import { LoginRegistrationModule } from './modules/login-registration/login-registration.module';
+import { PagesModule } from './modules/pages/pages.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
+import { HttpClientModule } from '@angular/common/http';
 
-const routes: Routes = [
-];
 
 @NgModule({
   declarations: [
@@ -18,12 +19,14 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes, { useHash: true}),
+    BrowserAnimationsModule,
     AdminModule,
     RegularUserModule,
+    MaterialModule,
     GuestUserModule,
-    LoginRegistrationModule
+    PagesModule,
   ],
   exports: [RouterModule],
   providers: [],

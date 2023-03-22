@@ -1,0 +1,26 @@
+.container {
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 3px;
+    border: #DCD6CC 1px solid;
+    background-color: #013074;
+    border-color:  #3F51B5;
+    border-width: 3px;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+input {
+    color: white;
+}
+
+mat-form-field {
+    font-size: 17px;
+}
+
+button {
+    border: 3px solid white;
+    background-color: #3F51B5;
+}
+
