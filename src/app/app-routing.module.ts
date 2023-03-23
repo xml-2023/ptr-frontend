@@ -10,7 +10,6 @@ const routes: Routes = [
     loadChildren: () => import('./modules/pages/pages.module').then(m => m.PagesModule),
     //canActivate: [AuthGuard]
   },
-  
 ];
 
 
