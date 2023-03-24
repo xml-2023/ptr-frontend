@@ -47,8 +47,7 @@ const routes: Routes = [
     MatButtonModule,
     MaterialModule,
     MatButtonModule,
-    RouterModule.forChild(routes),
-    
+    RouterModule.forChild(routes)
   ],
   exports: [
     MatToolbarModule,

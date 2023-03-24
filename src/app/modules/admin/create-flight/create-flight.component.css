@@ -55,6 +55,24 @@
     padding: 4px 10px 0;
     width: 100%;
   }
+
+  .input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+  .input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+  .text-danger{
+    
+    color: red;
+    font-size: 10px;
+    height: 40px;
+    outline: 0;
+    padding: 4px 10px 0;
+    width: 100%;
+  }
   
   .cut {
     background-color: #15172b;

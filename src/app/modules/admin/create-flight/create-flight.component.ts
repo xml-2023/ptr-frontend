@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Flight } from 'src/app/model/flight.model';
 import { FlightService } from 'src/app/service/flight.service';
@@ -23,11 +23,26 @@ export class CreateFlightComponent implements OnInit{
     ticketPriceInEuros : new FormControl()
   })
 
-  constructor( private flightService : FlightService ){ }
+  constructor( private flightService : FlightService, private formBuilder : FormBuilder, private toastr : ToastrService){ }
 
   ngOnInit(): void {
     
+    this.flightForm = this.formBuilder.group({
+      date : [this.flight.date, Validators.required],
+      timeOfArrival: [this.flight.timeOfArrival, Validators.required],
+      timeOfDeparture: [this.flight.timeOfDeparture, Validators.required],
+      placeOfArrival : [this.flight.placeOfArrival, Validators.required],
+      placeOfDeparture : [this.flight.placeOfDeparture, Validators.required],
+      planeCapacity : ['', Validators.compose([
+        Validators.required,  Validators.min(1) ])
+        ],
+      ticketPriceInEuros : ['', Validators.compose([
+        Validators.required,  Validators.min(1) ])
+        ]
+    })
   }
+
+ 
 
   public createFlight() : void{
     this.flight.date = this.flightForm.value.date;
@@ -38,8 +53,8 @@ export class CreateFlightComponent implements OnInit{
     this.flight.planeCapacity = this.flightForm.value.planeCapacity;
     this.flight.ticketPriceInEuros = this.flightForm.value.ticketPriceInEuros;
   
-    this.flightService.createFlight(this.flight).subscribe(res =>{
-      // this.toastr.success("Successful create!", "Creating flight")
-    });
+    this.flightService.createFlight(this.flight).subscribe(res => {
+      this.toastr.success("Success!", "Flight created!");
+     });
   }  
 }
