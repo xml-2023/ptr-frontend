@@ -11,6 +11,8 @@ import { PagesModule } from './modules/pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 @NgModule({
@@ -27,6 +29,10 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     GuestUserModule,
     PagesModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-top-right',
+    })
   ],
   exports: [RouterModule],
   providers: [],
