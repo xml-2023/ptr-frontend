@@ -10,7 +10,10 @@ import { GuestUserModule } from './modules/guest-user/guest-user.module';
 import { PagesModule } from './modules/pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './interceptor/token-interceptor.model';
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 @NgModule({
@@ -27,9 +30,19 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     GuestUserModule,
     PagesModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-top-right',
+    })
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

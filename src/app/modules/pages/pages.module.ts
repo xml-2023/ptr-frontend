@@ -17,7 +17,8 @@ import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/materi
 import { FlightSearchComponent } from './flight-search/flight-search.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
+import { LoginComponent } from './login/login.component';
+import { CreateFlightComponent } from '../admin/create-flight/create-flight.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,8 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'register', component: RegisterUserComponent },
       { path: 'flight-search', component: FlightSearchComponent },
+      { path: 'login', component: LoginComponent},
+      { path: 'createFlight', component: CreateFlightComponent },
     ]
   }
 ];
@@ -38,6 +41,7 @@ const routes: Routes = [
     PagesComponent,
     RegisterUserComponent,
     FlightSearchComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
@@ -53,8 +57,7 @@ const routes: Routes = [
     MatButtonModule,
     MaterialModule,
     MatButtonModule,
-    RouterModule.forChild(routes),
-    
+    RouterModule.forChild(routes)
   ],
   exports: [
     MatToolbarModule,
