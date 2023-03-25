@@ -10,7 +10,8 @@ import { GuestUserModule } from './modules/guest-user/guest-user.module';
 import { PagesModule } from './modules/pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './interceptor/token-interceptor.model';
 
 
 @NgModule({
@@ -29,7 +30,13 @@ import { HttpClientModule } from '@angular/common/http';
     PagesModule,
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
