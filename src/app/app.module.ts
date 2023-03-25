@@ -12,6 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './interceptor/token-interceptor.model';
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 @NgModule({
@@ -28,6 +30,10 @@ import { TokenInterceptor } from './interceptor/token-interceptor.model';
     MaterialModule,
     GuestUserModule,
     PagesModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-top-right',
+    })
   ],
   exports: [RouterModule],
   providers: [

@@ -15,7 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { LoginComponent } from './login/login.component';
-
+import { CreateFlightComponent } from '../admin/create-flight/create-flight.component';
 
 
 const routes: Routes = [
@@ -24,7 +24,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'register', component: RegisterUserComponent },
       { path: 'login', component: LoginComponent},
-      
+      { path: 'createFlight', component: CreateFlightComponent },
     ]
   }
 ];
@@ -50,8 +50,7 @@ const routes: Routes = [
     MatButtonModule,
     MaterialModule,
     MatButtonModule,
-    RouterModule.forChild(routes),
-    
+    RouterModule.forChild(routes)
   ],
   exports: [
     MatToolbarModule,
