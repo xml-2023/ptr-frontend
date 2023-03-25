@@ -14,6 +14,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import { FlightSearchComponent } from './flight-search/flight-search.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { LoginComponent } from './login/login.component';
 import { CreateFlightComponent } from '../admin/create-flight/create-flight.component';
 
@@ -23,6 +26,7 @@ const routes: Routes = [
     path: '', component: PagesComponent, children: [
       { path: 'home', component: HomeComponent },
       { path: 'register', component: RegisterUserComponent },
+      { path: 'flight-search', component: FlightSearchComponent },
       { path: 'login', component: LoginComponent},
       { path: 'createFlight', component: CreateFlightComponent },
     ]
@@ -36,6 +40,7 @@ const routes: Routes = [
     HomeComponent,
     PagesComponent,
     RegisterUserComponent,
+    FlightSearchComponent,
     LoginComponent,
   ],
   imports: [
@@ -47,6 +52,8 @@ const routes: Routes = [
     MatListModule,
     ReactiveFormsModule,
     FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatButtonModule,
     MaterialModule,
     MatButtonModule,
