@@ -25,7 +25,6 @@ export class RegisterUserComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 
   requiredNameControl = new FormControl('', [
