@@ -24,4 +24,8 @@ export class FlightService {
     return this.http.get<any>(this.apiHost + 'flights/search' , {params: new HttpParams().set('date', date).set('placeOfDeparture', departure).set('placeOfArrival', arrival)
       .set('numberOfPassengers', passengers)})
   }
+
+  deleteFlight(id : number): Observable<any>{
+    return this.http.delete<any>(this.apiHost + 'flights/' + id , {headers: this.headers})
+  }
 }
