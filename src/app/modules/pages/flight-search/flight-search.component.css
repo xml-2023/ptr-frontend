@@ -283,6 +283,19 @@ body {
   float: left;
   text-align: center;
   position: relative;
+  transform: translate(-85%);
+  animation: move 3s infinite;
+}
+
+@keyframes move {
+  20% {
+    left: 0%;
+    opacity: 1;
+  }
+  90% {
+    left: 70%;
+    opacity: 0;
+  }
 }
 
 .bc-plane img {
@@ -290,7 +303,7 @@ body {
   margin: 29px auto 0 auto;
 }
 
-.bc-plane:before {
+/* .bc-plane:before {
   content: '';
   width: 100px;
   height: 2px;
@@ -308,7 +321,7 @@ body {
   position: absolute;
   top: 45px;
   right: -30%;
-}
+} */
 
 .flight-card-details--text {
   width: 100%;
