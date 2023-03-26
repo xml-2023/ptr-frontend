@@ -1,5 +1,7 @@
 .form {
-    background-color: #15172b;
+    background: #606c88;
+    background: -webkit-linear-gradient(to right, #3f4c6b, #606c88);
+    background: linear-gradient(to right, #3f4c6b, #606c88);
     border-radius: 20px;
     box-sizing: border-box;
     height: 450px;
@@ -19,8 +21,9 @@
   .subtitle {
     color: #eee;
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
+    text-align: center;
   }
   
   .input-container {
@@ -44,9 +47,10 @@
   }
   
   .input {
-    background-color: #303245;
+    background-color: rgb(255 255 255 / 0.05);
+    border: 1px solid rgba(253, 253, 253, 0.363);
     border-radius: 12px;
-    border: 0;
+    border-radius: 0.375rem;
     box-sizing: border-box;
     color: #eee;
     font-size: 18px;
@@ -75,7 +79,10 @@
   }
   
   .cut {
-    background-color: #15172b;
+    background: #606c88;
+    background: -webkit-linear-gradient(to right, #3f4c6b, #606c88);
+    background: linear-gradient(to right, #3f4c6b, #606c88);
+    color: white;
     border-radius: 10px;
     height: 10px;
     left: 20px;
@@ -95,33 +102,93 @@
     transform: translateY(8px);
   }
   
-  .placeholder {
-    color: #65657b;
+  /* .placeholder {
+    color: white;
+    background: #606c88;
+    background: -webkit-linear-gradient(to right, #3f4c6b, #606c88);
+    background: linear-gradient(to right, #3f4c6b, #606c88);
     font-family: sans-serif;
     left: 20px;
     line-height: 14px;
-    pointer-events: none;
     position: absolute;
-    transform-origin: 0 50%;
-    transition: transform 200ms, color 200ms;
+    margin-left: -40px;
+    top: 20px;
+  } */
+
+  .placeholder-date{
+    color: white;
+    /* background: #606c88;
+    background: -webkit-linear-gradient(to right, #3f4c6b, #606c88);
+    background: linear-gradient(to right, #3f4c6b, #606c88); */
+    font-family: sans-serif;
+    left: 20px;
+    line-height: 14px;
+    /* pointer-events: none; */
+    position: absolute;
+    /* transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms; */
+    margin-left: -43px;
     top: 20px;
   }
+
+  .input:focus ~ .placeholder-date,
+  .input:not(:placeholder-shown) ~ .placeholder-date {
+    transform: translateY(-35px) translateX(10px) scale(0.75);
+  }
   
-  .input:focus ~ .placeholder,
+   .input:not(:placeholder-shown) ~ .placeholder-date {
+    color: white;
+  } 
+
+  .input:focus ~ .placeholder-date {
+    color: white;
+  }
+
+
+  .placeholder-date1{
+    color: white;
+    /* background: #606c88;
+    background: -webkit-linear-gradient(to right, #3f4c6b, #606c88);
+    background: linear-gradient(to right, #3f4c6b, #606c88); */
+    font-family: sans-serif;
+    left: 20px;
+    line-height: 14px;
+    /* pointer-events: none; */
+    position: absolute;
+    /* transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms; */
+    margin-left: -32px;
+    top: 20px;
+  }
+
+  .input:focus ~ .placeholder-date1,
+  .input:not(:placeholder-shown) ~ .placeholder-date1 {
+    transform: translateY(-35px) translateX(10px) scale(0.75);
+  }
+  
+   .input:not(:placeholder-shown) ~ .placeholder-date1 {
+    color: white;
+  } 
+
+  .input:focus ~ .placeholder-date1 {
+    color: white;
+  }
+  
+  /* .input:focus ~ .placeholder,
   .input:not(:placeholder-shown) ~ .placeholder {
     transform: translateY(-35px) translateX(10px) scale(0.75);
   }
   
-  .input:not(:placeholder-shown) ~ .placeholder {
-    color: #808097;
-  }
-  
+   .input:not(:placeholder-shown) ~ .placeholder {
+    color: white;
+  } 
+
   .input:focus ~ .placeholder {
-    color: #196588;
-  }
+    color: white;
+  } */
   
   .submit {
-    background-color: #08d;
+    background-color: #023075;
     border-radius: 12px;
     border: 0;
     box-sizing: border-box;
@@ -140,7 +207,7 @@
   }
   
   .submit:active {
-    background-color: #06b;
+    background-color: #023075;
   }
 
 
