@@ -18,7 +18,6 @@ export class LoginComponent implements OnInit{
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 
   public login() {
@@ -28,12 +27,10 @@ export class LoginComponent implements OnInit{
         this.userService.currentUser = res.payload.User;
         this.currentUser = res.payload.User;        
         if (this.currentUser.role.name === 'REGISTERED_USER') {
-            //this.router.navigate(['putanja do pocetne stranice za registrovanog korisnika']);
-            alert("registrovani korisnik")
+            this.router.navigate(['regular-user']);
         }
         else if (this.currentUser.role.name === 'ADMINISTRATOR') {
-            //this.router.navigate(['putanja do pocetne stranice za administratora']);
-            alert("admin")
+            this.router.navigate(['admin']);
         }        
       });
     },

@@ -5,7 +5,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule, Routes } from '@angular/router';
 import { MatListModule } from '@angular/material/list';
-import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material/material.module';
 import { MatIconModule } from '@angular/material/icon';
@@ -24,9 +23,8 @@ import { CreateFlightComponent } from '../admin/create-flight/create-flight.comp
 const routes: Routes = [
   {
     path: '', component: PagesComponent, children: [
-      { path: 'home', component: HomeComponent },
       { path: 'register', component: RegisterUserComponent },
-      { path: 'flight-search', component: FlightSearchComponent },
+      { path: '', component: FlightSearchComponent },
       { path: 'login', component: LoginComponent},
       { path: 'createFlight', component: CreateFlightComponent },
     ]
@@ -37,7 +35,6 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    HomeComponent,
     PagesComponent,
     RegisterUserComponent,
     FlightSearchComponent,

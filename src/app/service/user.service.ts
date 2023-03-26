@@ -29,7 +29,7 @@ export class UserService {
   }
 
   getMyInfo(email: any): Observable<any>{
-    return this.http.post<any>(this.apiHost + 'users/find/' + email, {headers: this.headers});
+    return this.http.get<any>(this.apiHost + 'users/find/' + email, {headers: this.headers});
   }
 
   logout() {
