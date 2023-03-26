@@ -1,52 +1,52 @@
 <div class="form">
-    <div class="subtitle">Create flight!</div>
+    <div class="subtitle">Create flight</div>
     <form [formGroup]="flightForm">
     <div class="input-container ic2">
         <input type="date" class="input" id="date" formControlName="date" [ngClass]="{'is-invalid': flightForm.controls['date'].errors}">
         <div *ngIf="flightForm.controls['date'].touched && !flightForm.controls['date'].valid" class="text-danger"> This field is required! </div>          
-        <div class="cut"></div>
-        <label for="date" class="placeholder">Date</label>
+        <!-- <div class="cut"></div> -->
+        <label for="date" class="placeholder-date1">Date</label>
     </div>
 <div class="ic2">
     <div class="input-container ">
         <input type="text" class="input" id="placeOfDeparture" formControlName="placeOfDeparture" [ngClass]="{'is-invalid': flightForm.controls['placeOfDeparture'].errors}">
         <div *ngIf="flightForm.controls['placeOfDeparture'].touched && !flightForm.controls['placeOfDeparture'].valid" class="text-danger"> This field is required! </div>         
-        <div class="cut"></div>
-        <label for="placeOfDeparture" class="placeholder">Place of departure</label>
+        <!-- <div class="cut"></div> -->
+        <label for="placeOfDeparture" class="placeholder-date">Place of departure</label>
     </div>
     <div class="input-container icr">
         <input type="text" class="input" id="placeOfArrival" formControlName="placeOfArrival" [ngClass]="{'is-invalid': flightForm.controls['placeOfArrival'].errors}">
         <div *ngIf="flightForm.controls['placeOfArrival'].touched && !flightForm.controls['placeOfArrival'].valid" class="text-danger"> This field is required! </div>          
-        <div class="cut"></div>
-        <label for="placeOfArrival" class="placeholder">Place of arrival</label>
+        <!-- <div class="cut"></div> -->
+        <label for="placeOfArrival" class="placeholder-date">Place of arrival</label>
     </div>
 </div>
 <div class="ic2">
     <div class="input-container">
         <input type="time" class="input" id="timeOfDeparture" formControlName="timeOfDeparture" [ngClass]="{'is-invalid': flightForm.controls['timeOfDeparture'].errors}">
         <div *ngIf="flightForm.controls['timeOfDeparture'].touched && !flightForm.controls['timeOfDeparture'].valid" class="text-danger"> This field is required! </div>          
-        <div class="cut"></div>
-        <label for="timeOfDeparture" class="placeholder">Time of departure</label>
+        <!-- <div class="cut"></div> -->
+        <label for="timeOfDeparture" class="placeholder-date">Time of departure</label>
     </div>
     <div class="input-container icr">
         <input type="time" class="input" id="timeOfArrival" formControlName="timeOfArrival" [ngClass]="{'is-invalid': flightForm.controls['timeOfArrival'].errors}">
         <div *ngIf="flightForm.controls['timeOfArrival'].touched && !flightForm.controls['timeOfArrival'].valid" class="text-danger"> This field is required! </div>          
-        <div class="cut"></div>
-        <label for="timeOfArrival" class="placeholder">Time of arrival</label>
+        <!-- <div class="cut"></div> -->
+        <label for="timeOfArrival" class="placeholder-date">Time of arrival</label>
     </div>
 </div>
 <div class="ic2">
     <div class="input-container">
         <input type="number" class="input" id="planeCapacity" formControlName="planeCapacity" [ngClass]="{'is-invalid': flightForm.controls['planeCapacity'].errors}">
         <div *ngIf="flightForm.controls['planeCapacity'].touched && !flightForm.controls['planeCapacity'].valid" class="text-danger"> Plane capacity is required and has to be positive number! </div>          
-        <div class="cut"></div>
-        <label for="planeCapacity" class="placeholder">Plane capacity</label>
+        <!-- <div class="cut"></div> -->
+        <label for="planeCapacity" class="placeholder-date">Plane capacity</label>
     </div>
     <div class="input-container icr">
         <input type="number" class="input" id="ticketPriceInEuros" formControlName="ticketPriceInEuros" [ngClass]="{'is-invalid': flightForm.controls['ticketPriceInEuros'].errors}">
         <div *ngIf="flightForm.controls['ticketPriceInEuros'].touched && !flightForm.controls['ticketPriceInEuros'].valid" class="text-danger"> Price is required and has to be positive number! </div>          
-        <div class="cut"></div>
-        <label for="ticketPriceInEuros" class="placeholder">Ticket price in euros</label>
+        <!-- <div class="cut"></div> -->
+        <label for="ticketPriceInEuros" class="placeholder-date">Ticket price in euros</label>
     </div>
 </div>
     <button type="text" class="submit" (click)="createFlight()" [disabled]="!flightForm.valid">Create</button>

@@ -3,6 +3,8 @@
     margin: 0 auto;
     text-align: center;
     padding: 30px;
+    background: #FAFAFA;
+    border: none;
 }
 .form {
     display: flex;
@@ -91,6 +93,10 @@
     cursor: pointer;
   }
 
+  .form div button:hover:disabled{
+    cursor: default;
+  }
+
   .input-text{
     max-width: 200px;
     margin-right: 1rem;
@@ -127,6 +133,15 @@
     border-radius: 4px;
     transition: all .3s ease;
     border-radius: 10px;
+  }
+
+  .placeholder-1{
+    color: white;
+    font-family: sans-serif;
+    left: 50px;
+    margin-top: -16px;
+    line-height: 14px;
+    position: absolute;
   }
 
 
