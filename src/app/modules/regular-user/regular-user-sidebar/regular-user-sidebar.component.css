@@ -1,0 +1,24 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+mat-sidenav {
+    width: 200px;
+    padding:15px;
+}
+.mat-drawer { 
+    background-color: #023075;
+    color:#fff
+}
+.main-content {
+    padding:20px;
+}
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+h2 {
+    color: white;
+    font-size: large;
+}
+
+math-icon {
+    width: max-content;
+}

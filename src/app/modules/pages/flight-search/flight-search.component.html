@@ -58,7 +58,7 @@
         <div class="flight-card--details">
         <div class="bc-from">
             <span class="detail-time">
-                {{flight.timeOfDeparture}}
+                {{flight.timeOfDeparture[0]}}:{{flight.timeOfDeparture[1]}}
             </span>
             <span class="detail-city">
                 {{flight.placeOfDeparture}}
@@ -69,7 +69,7 @@
         </div>
         <div class="bc-to">
             <span class="detail-time">
-                {{flight.timeOfArrival}}
+                {{flight.timeOfArrival[0]}}:{{flight.timeOfArrival[1]}}
             </span>
             <span class="detail-city">
                 {{flight.placeOfArrival}}

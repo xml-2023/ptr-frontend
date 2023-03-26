@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/model/user.model';
 import { UserService } from 'src/app/service/user.service';
 
@@ -22,7 +24,7 @@ export class RegisterUserComponent implements OnInit {
   public confirmationPass: string = '';
   
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private toastr : ToastrService, private router : Router) { }
 
   ngOnInit(): void {
   }
@@ -55,26 +57,27 @@ export class RegisterUserComponent implements OnInit {
       if (this.isPassConfirmed()) {
         this.userService.registerUser(this.user).subscribe(res => {
           if (res.report.valid === true) {
-            alert('You have successfully registered!');
+            this.toastr.success("Success!", "User is registered");
+            this.router.navigate(['login'])
           }
           else {
             if (res.report.errorMessages.name !== undefined) {
-              alert(res.report.errorMessages.name);
+              this.toastr.error("Error!", "Name is invalid!");
             }
             if (res.report.errorMessages.surname !== undefined) {
-              alert(res.report.errorMessages.surname);
+              this.toastr.error("Error!", "Surname is invalid!");
             }
             if (res.report.errorMessages.email !== undefined) {
-              alert(res.report.errorMessages.email);
+              this.toastr.error("Error!", "Email is invalid!");
             }
             if (res.report.errorMessages.password !== undefined) {
-              alert(res.report.errorMessages.password);
+              this.toastr.error("Error!", "Password is invalid!");
             }
              
           }
         })
     } else {
-      alert("Password is not confirmed!");
+      this.toastr.error("Error!", "Password is not confirmed!");
     }
     }
   }

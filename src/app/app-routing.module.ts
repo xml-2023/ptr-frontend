@@ -6,10 +6,17 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
 
   {
-    path: 'pages',
+    path: '',
     loadChildren: () => import('./modules/pages/pages.module').then(m => m.PagesModule),
-    //canActivate: [AuthGuard]
   },
+  {
+    path: 'admin',
+    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
+  },
+  {
+    path: 'regular-user',
+    loadChildren: () => import('./modules/regular-user/regular-user.module').then(m => m.RegularUserModule),
+  }
 ];
 
 
