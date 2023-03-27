@@ -11,9 +11,6 @@
     padding: 5px;
 }
 
-input {
-    color: white;
-}
 
 mat-form-field {
     font-size: 17px;
@@ -21,6 +18,13 @@ mat-form-field {
 
 button {
     border: 3px solid white;
-    background-color: #3F51B5;
+    background-color: #023075;
 }
+
+form {
+    background: #606c88;
+    background: -webkit-linear-gradient(to right, #3f4c6b, #606c88);
+    background: linear-gradient(to right, #3f4c6b, #606c88);
+}
+
 

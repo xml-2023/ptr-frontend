@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { LoginData } from 'src/app/model/login-data.model';
 import { UserService } from 'src/app/service/user.service';
 import { MyErrorStateMatcher } from '../register-user/register-user.component';
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit{
   public currentUser: any;
 
   
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private toastr : ToastrService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -25,6 +26,8 @@ export class LoginComponent implements OnInit{
       console.log(res);
       this.userService.getMyInfo(this.data.email).subscribe(res => {
         this.userService.currentUser = res.payload.User;
+        localStorage.setItem("role", res.payload.User.role.name);
+        this.userService.setRole(res.payload.User.role.name);
         this.currentUser = res.payload.User;        
         if (this.currentUser.role.name === 'REGISTERED_USER') {
             this.router.navigate(['regular-user']);
@@ -35,7 +38,7 @@ export class LoginComponent implements OnInit{
       });
     },
     error => {
-      alert("Incorrect username or password.");
+      this.toastr.error("Error!", "Incorrect username or password.");
     })
       
   }
