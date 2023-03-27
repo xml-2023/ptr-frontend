@@ -68,7 +68,7 @@ export class RegisterUserComponent implements OnInit {
               this.toastr.error("Error!", "Surname is invalid!");
             }
             if (res.report.errorMessages.email !== undefined) {
-              this.toastr.error("Error!", "Email is invalid!");
+              this.toastr.error("Error!", "User with same email is already registered!");
             }
             if (res.report.errorMessages.password !== undefined) {
               this.toastr.error("Error!", "Password is invalid!");
