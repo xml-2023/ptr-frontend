@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit{
         this.userService.setRole(res.payload.User.role.name);
         this.currentUser = res.payload.User;        
         if (this.currentUser.role.name === 'REGISTERED_USER') {
-            this.router.navigate(['regular-user']);
+            this.router.navigate(['regular-user/flight-search']);
         }
         else if (this.currentUser.role.name === 'ADMINISTRATOR') {
             this.router.navigate(['admin']);
