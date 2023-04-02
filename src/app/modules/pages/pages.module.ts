@@ -18,6 +18,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { LoginComponent } from './login/login.component';
 import { CreateFlightComponent } from '../admin/create-flight/create-flight.component';
+import { TicketsViewComponent } from './tickets-view/tickets-view.component';
 
 
 const routes: Routes = [
@@ -39,6 +40,7 @@ const routes: Routes = [
     RegisterUserComponent,
     FlightSearchComponent,
     LoginComponent,
+    TicketsViewComponent,
   ],
   imports: [
     CommonModule,
@@ -58,7 +60,8 @@ const routes: Routes = [
   ],
   exports: [
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MaterialModule,
   ],
   providers: [
     {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}

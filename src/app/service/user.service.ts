@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { User } from '../model/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class UserService {
   headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   private access_token: string | null = localStorage.getItem('jwt');
-  currentUser!:any;
+  currentUser: any = JSON.parse(localStorage.getItem('loggedUser') as string) || null;
   private loggedIn: boolean = !!this.access_token;
   private role: string = localStorage.getItem('role') || '';
 
@@ -39,6 +40,7 @@ export class UserService {
     this.currentUser = null;
     localStorage.removeItem("jwt");
     localStorage.removeItem("role");
+    localStorage.removeItem("loggedUser");
     this.access_token = null;
     this.loggedIn = false;
     this.role = '';

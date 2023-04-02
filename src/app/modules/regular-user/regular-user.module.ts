@@ -7,18 +7,23 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule, Routes } from '@angular/router';
 import { MatListModule } from '@angular/material/list';
 import { FlightSearchComponent } from '../pages/flight-search/flight-search.component';
+import { BuyTicketsComponent } from '../pages/buy-tickets/buy-tickets.component';
+import { TicketsViewComponent } from '../pages/tickets-view/tickets-view.component';
 
 const routes: Routes = [
   {
     path: '', component: RegularUserSidebarComponent, children: [
-      { path: 'flight-search', component: FlightSearchComponent }
+      { path: 'flight-search', component: FlightSearchComponent },
+      { path: 'buy-tickets', component: BuyTicketsComponent },
+      { path: 'flights/:id/tickets', component: TicketsViewComponent }
     ]
   }
 ];
 
 @NgModule({
   declarations: [
-    RegularUserSidebarComponent
+    RegularUserSidebarComponent,
+    BuyTicketsComponent
   ],
   imports: [
     CommonModule,

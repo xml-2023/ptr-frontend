@@ -1,18 +1,26 @@
 <mat-sidenav-container fullscreen>
-    <mat-sidenav mode="side" #sidenav opened position="start">
-      <mat-nav-list>
-        <a mat-list-item [routerLink]="'/regular-user'"> <h2>Home</h2> </a>
-        <a mat-list-item [routerLink]="'/regular-user/flight-search'"> <h2>Flight search</h2> </a>
-        <a mat-list-item [routerLink]="'/login'" (click)="logout()"> <h2>Logout</h2> </a>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <mat-toolbar color="primary">
-        <button mat-icon-button (click)="sidenav.toggle()">
-          <mat-icon>menu</mat-icon>
-        </button>
-        &nbsp;&nbsp;&nbsp;<h1>Book your ticket today!</h1>
-      </mat-toolbar>
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+  <mat-sidenav mode="side" #sidenav opened position="start">
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="'/regular-user'"> <h2>Home</h2> </a>
+      <a mat-list-item [routerLink]="'/regular-user/flight-search'">
+        <h2>Flight search</h2>
+      </a>
+      <a mat-list-item [routerLink]="'/regular-user/buy-tickets'">
+        <h2>Book ticket(s)</h2>
+      </a>
+      <a mat-list-item [routerLink]="'/login'" (click)="logout()">
+        <h2>Logout</h2>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      &nbsp;&nbsp;&nbsp;
+      <h1>Book your ticket today!</h1>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
