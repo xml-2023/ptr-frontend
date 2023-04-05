@@ -7,26 +7,32 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule, Routes } from '@angular/router';
 import { MatListModule } from '@angular/material/list';
 import { FlightSearchComponent } from '../pages/flight-search/flight-search.component';
+import { BuyTicketsComponent } from '../pages/buy-tickets/buy-tickets.component';
+import { TicketsViewComponent } from '../pages/tickets-view/tickets-view.component';
+import { BookedTicketsComponent } from '../pages/booked-tickets/booked-tickets.component';
 
 const routes: Routes = [
   {
-    path: '', component: RegularUserSidebarComponent, children: [
-      { path: 'flight-search', component: FlightSearchComponent }
-    ]
-  }
+    path: '',
+    component: RegularUserSidebarComponent,
+    children: [
+      { path: 'flight-search', component: FlightSearchComponent },
+      { path: 'buy-tickets', component: BuyTicketsComponent },
+      { path: 'flights/:id/tickets', component: TicketsViewComponent },
+      { path: 'booked-tickets', component: BookedTicketsComponent },
+    ],
+  },
 ];
 
 @NgModule({
-  declarations: [
-    RegularUserSidebarComponent
-  ],
+  declarations: [RegularUserSidebarComponent, BuyTicketsComponent],
   imports: [
     CommonModule,
     MaterialModule,
     MatSidenavModule,
     MatToolbarModule,
     RouterModule.forChild(routes),
-    MatListModule
-  ]
+    MatListModule,
+  ],
 })
-export class RegularUserModule { }
+export class RegularUserModule {}

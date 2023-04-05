@@ -20,7 +20,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatIconModule,
     MatTooltipModule,
     MatFormFieldModule,
-    MatSidenavModule
+    MatSidenavModule,
   ],
   exports: [
     CommonModule,
@@ -30,7 +30,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatCardModule,
     MatIconModule,
     MatTooltipModule,
-    MatFormFieldModule
+    MatFormFieldModule,
   ]
 })
 export class MaterialModule {}

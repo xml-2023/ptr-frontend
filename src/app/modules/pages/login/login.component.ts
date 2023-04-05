@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { LoginData } from 'src/app/model/login-data.model';
 import { UserService } from 'src/app/service/user.service';
 import { MyErrorStateMatcher } from '../register-user/register-user.component';
+import { User } from 'src/app/model/user.model';
 
 @Component({
   selector: 'app-login',
@@ -26,9 +27,10 @@ export class LoginComponent implements OnInit{
       console.log(res);
       this.userService.getMyInfo(this.data.email).subscribe(res => {
         this.userService.currentUser = res.payload.User;
+        this.currentUser = res.payload.User;
+        localStorage.setItem('loggedUser', JSON.stringify(this.currentUser));
         localStorage.setItem("role", res.payload.User.role.name);
-        this.userService.setRole(res.payload.User.role.name);
-        this.currentUser = res.payload.User;        
+        this.userService.setRole(res.payload.User.role.name);     
         if (this.currentUser.role.name === 'REGISTERED_USER') {
             this.router.navigate(['regular-user/flight-search']);
         }

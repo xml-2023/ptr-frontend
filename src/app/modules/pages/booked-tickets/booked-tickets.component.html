@@ -1,0 +1,24 @@
+<h1 class="text-center pt-3">Tickets</h1>
+<div
+  class="d-flex flex-row gap-3 flex-wrap w-100 px-5 pt-3"
+  *ngFor="let flight of flights"
+>
+  <div
+    *ngFor="let ticket of flight.tickets"
+    class="card"
+    style="width: 30%; height: 30%"
+  >
+    <div class="card-body">
+      <h5 class="card-title">
+        {{ flight.placeOfDeparture }} - {{ flight.placeOfArrival }}
+      </h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+        {{ setTimeOfDeparture(flight) }} -
+        {{ setTimeOfArrival(flight) }} &nbsp;&nbsp;
+        {{ setDate(flight) }}
+      </h6>
+      <h6 class="card-text">Seat: {{ ticket.seat }}</h6>
+      <h5 class="card-text">Price: {{ ticket.price }} €</h5>
+    </div>
+  </div>
+</div>
