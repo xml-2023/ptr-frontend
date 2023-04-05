@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit{
         localStorage.setItem("role", res.payload.User.role.name);
         this.userService.setRole(res.payload.User.role.name);     
         if (this.currentUser.role.name === 'REGISTERED_USER') {
-            this.router.navigate(['regular-user']);
+            this.router.navigate(['regular-user/flight-search']);
         }
         else if (this.currentUser.role.name === 'ADMINISTRATOR') {
             this.router.navigate(['admin']);
