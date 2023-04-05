@@ -4,43 +4,53 @@ import { map, Observable } from 'rxjs';
 import { User } from '../model/user.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
   apiHost: string = 'http://localhost:8080/';
-  headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
+  headers: HttpHeaders = new HttpHeaders({
+    'Content-Type': 'application/json',
+  });
 
   private access_token: string | null = localStorage.getItem('jwt');
-  currentUser: any = JSON.parse(localStorage.getItem('loggedUser') as string) || null;
+  currentUser: any =
+    JSON.parse(localStorage.getItem('loggedUser') as string) || null;
   private loggedIn: boolean = !!this.access_token;
   private role: string = localStorage.getItem('role') || '';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   registerUser(user: any): Observable<any> {
-    return this.http.post<any>(this.apiHost + 'users/register', user, {headers: this.headers});
+    return this.http.post<any>(this.apiHost + 'users/register', user, {
+      headers: this.headers,
+    });
   }
 
   login(data: any): Observable<any> {
-    return this.http.post<any>(this.apiHost + 'auth/login', data, {headers: this.headers})
-    .pipe(map((res) => {
-      console.log(res);
-      console.log('Login success');
-      this.access_token = res.accessToken;
-      localStorage.setItem("jwt", res.accessToken);
-      this.loggedIn = true;
-     }));
+    return this.http
+      .post<any>(this.apiHost + 'auth/login', data, { headers: this.headers })
+      .pipe(
+        map((res) => {
+          console.log(res);
+          console.log('Login success');
+          this.access_token = res.accessToken;
+          localStorage.setItem('jwt', res.accessToken);
+          this.loggedIn = true;
+        })
+      );
   }
 
-  getMyInfo(email: any): Observable<any>{
-    return this.http.get<any>(this.apiHost + 'users/find/' + email, {headers: this.headers});
+  getMyInfo(email: any): Observable<any> {
+    return this.http.get<any>(this.apiHost + 'users/find/' + email, {
+      headers: this.headers,
+    });
   }
 
   logout() {
     this.currentUser = null;
-    localStorage.removeItem("jwt");
-    localStorage.removeItem("role");
-    localStorage.removeItem("loggedUser");
+    localStorage.removeItem('jwt');
+    localStorage.removeItem('role');
+    localStorage.removeItem('loggedUser');
     this.access_token = null;
     this.loggedIn = false;
     this.role = '';
@@ -70,6 +80,12 @@ export class UserService {
     return JSON.parse(window.atob(access_token.split('.')[1])).sub;
   }
 
+  findTicketsByUserId(userId: number): Observable<any> {
+    return this.http.get<any>(this.apiHost + 'users/' + userId + '/tickets', {
+      headers: this.headers,
+    });
+  }
+
   // getCurrentRole(): string {
   //   let roleName: string = '';
   //   this.getMyInfo(this.getEmailFromToken).subscribe(res => {
@@ -78,6 +94,4 @@ export class UserService {
 
   //   return roleName;
   // }
-
-
 }

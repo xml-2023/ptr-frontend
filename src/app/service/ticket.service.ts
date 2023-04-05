@@ -12,7 +12,6 @@ export class TicketService {
   constructor(private http: HttpClient) { }
 
   buyTicket(ticket: any): Observable<any>{
-    console.log(ticket);
     return this.http.put<any>(this.apiHost + 'tickets/buy', ticket, {headers: this.headers});
   }
 }

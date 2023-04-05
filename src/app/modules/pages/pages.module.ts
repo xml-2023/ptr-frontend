@@ -19,6 +19,7 @@ import { MatInputModule } from '@angular/material/input';
 import { LoginComponent } from './login/login.component';
 import { CreateFlightComponent } from '../admin/create-flight/create-flight.component';
 import { TicketsViewComponent } from './tickets-view/tickets-view.component';
+import { BookedTicketsComponent } from './booked-tickets/booked-tickets.component';
 
 
 const routes: Routes = [
@@ -41,6 +42,7 @@ const routes: Routes = [
     FlightSearchComponent,
     LoginComponent,
     TicketsViewComponent,
+    BookedTicketsComponent,
   ],
   imports: [
     CommonModule,

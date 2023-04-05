@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
-import { User } from 'src/app/model/user.model';
 import { FlightService } from 'src/app/service/flight.service';
 import { TicketService } from 'src/app/service/ticket.service';
 import { UserService } from 'src/app/service/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-tickets-view',
@@ -18,13 +18,14 @@ export class TicketsViewComponent {
   tickets: any[] = [];
   ticket: any;
 
-  constructor(private flightService: FlightService, private ticketService: TicketService, private route:ActivatedRoute, private userService: UserService) {}
+  constructor(private flightService: FlightService, private ticketService: TicketService, private route:ActivatedRoute, private userService: UserService, private toastr : ToastrService) {}
 
   ngOnInit() {
        this.flightService.findAll().subscribe(res => {
         this.flights = res.payload.ArrayList;
         this.flight = this.findFlightById();
         this.tickets = this.flight.tickets;
+        this.tickets = this.tickets.filter((t) => t.booked === false);
        });
 
        this.route.params.subscribe(params => {
@@ -70,9 +71,15 @@ export class TicketsViewComponent {
   }
 
   public buyTicket(ticketId: number) {
-    this.ticket = {ticketId, userId: this.userService.currentUser.id}
+    this.ticket = {ticketId, userId: this.userService.currentUser.id, flightId: this.flight.id};
     this.ticketService.buyTicket(this.ticket).subscribe(res => {
-      console.log(res);
+      this.toastr.success("Success!", "Successfully booked ticket!");
+      this.flightService.findAll().subscribe(res => {
+        this.flights = res.payload.ArrayList;
+        this.flight = this.findFlightById();
+        this.tickets = this.flight.tickets;
+        this.tickets = this.tickets.filter((t) => t.booked === false);
+       });
     });
   }
 
